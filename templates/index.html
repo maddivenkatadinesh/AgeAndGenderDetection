@@ -4,13 +4,13 @@
 <title>Age and Gender</title>
 <style>
 .heading{
-color:coral
+color:#993399
 }
 .button{
 color:navy
 }
 .total{
-background-color:aqua
+background-color:#66ccff
 }
 .age{
 color:blue
@@ -18,28 +18,28 @@ color:blue
 .gender{
 color:purple
 }
-.param{
+.para{
 color:red
 }
 </style>
 </head>
   <body class="total">
 	<center>
-	<h1 class='heading'>AGE AND GENDER PREDICTION</h1>
-	<table border=1>
+	<h1 class='heading'>AGE AND GENDER PREDICTION</h1><br>
+	<img src="{{ url_for('video_feed') }}" height="350"><br><br>
+	<table>
 	<tr>
 	<td>
 	<center>
 	<form action='/predict' method='POST'>
-		<input type="submit" value="open camera" class="button">
+		<input type="submit" value="Detect Now" class="button">
     </form>
 	</center>
 	</td></tr>
-	<tr><td class="age"><center>you age is in between{{ age }}</center></td></tr>
-	<tr><td class="gender"><center>your gender is {{ gender }}</center></td>
-	</tr>
 	</table>
-	<p class="para">{{ n }}</p>
+	<h3 class="age"><center>your age is in between {{ age }}</center></h3>
+	<h3 class="gender"><center>your gender is {{ gender }}</center></h3>
+	<h2 class="para">{{ n }}</h2>
 	</center>
   </body>
 </html>
