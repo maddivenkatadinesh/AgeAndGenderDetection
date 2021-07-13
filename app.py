@@ -41,9 +41,9 @@ def predict():
 
     faceProto="opencv_face_detector.pbtxt"
     faceModel="opencv_face_detector_uint8.pb"
-    ageProto="age_deploy.prototxt"
+    ageProto="age1.prototxt"
     ageModel="age_net.caffemodel"
-    genderProto="gender_deploy.prototxt"
+    genderProto="gender1.prototxt"
     genderModel="gender_net.caffemodel"
 
     MODEL_MEAN_VALUES=(78.4263377603, 87.7689143744, 114.895847746)
