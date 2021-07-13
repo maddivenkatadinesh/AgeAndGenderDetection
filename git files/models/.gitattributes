@@ -1,4 +1,0 @@
-*.caffemodel filter=lfs diff=lfs merge=lfs -text
-age_net.caffemodel filter=lfs diff=lfs merge=lfs -text
-gender_net.caffemodel filter=lfs diff=lfs merge=lfs -text
-opencv_face_detector_uint8.pb filter=lfs diff=lfs merge=lfs -text
