@@ -1,6 +1,3 @@
 opencv-python
 argparse
 flask
-caffe
-pandas
-numpy
