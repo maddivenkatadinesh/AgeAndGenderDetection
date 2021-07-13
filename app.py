@@ -9,7 +9,7 @@ app=Flask(__name__)
 
 @app.route('/')
 def default():
-    return render_template('new 1.html')
+    return render_template('index.html')
 @app.route('/predict',methods=['GET','POST'])
 def predict():
 
@@ -39,12 +39,12 @@ def predict():
 
     args=parser.parse_args()
 
-    faceProto="git files/models/opencv_face_detector.pbtxt"
-    faceModel="git files/models/opencv_face_detector_uint8.pb"
-    ageProto="git files/models/age_deploy.prototxt"
-    ageModel="git files/models/age_net.caffemodel"
-    genderProto="git files/models/gender_deploy.prototxt"
-    genderModel="git files/models/gender_net.caffemodel"
+    faceProto="opencv_face_detector.pbtxt"
+    faceModel="opencv_face_detector_uint8.pb"
+    ageProto="age_deploy.prototxt"
+    ageModel="age_net.caffemodel"
+    genderProto="gender_deploy.prototxt"
+    genderModel="gender_net.caffemodel"
 
     MODEL_MEAN_VALUES=(78.4263377603, 87.7689143744, 114.895847746)
     ageList=['(0-2)', '(4-6)', '(8-12)', '(15-20)', '(25-32)', '(38-43)', '(48-53)', '(60-100)']
@@ -65,7 +65,7 @@ def predict():
         resultImg,faceBoxes=highlightFace(faceNet,frame)
         if not faceBoxes:
             print("No face detected")
-            return render_template('new 1.html',n='No Face Detected')
+            return render_template('index.html',n='No Face Detected')
 
         for faceBox in faceBoxes:
             face=frame[max(0,faceBox[1]-padding):
@@ -86,7 +86,7 @@ def predict():
             #save_folder = 'static\\images'
             
 
-            return render_template('new 1.html',age=age,gender=gender)
+            return render_template('index.html',age=age,gender=gender)
             #cv2.putText(resultImg, f'{gender}, {age}', (faceBox[0], faceBox[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,255,255), 2, cv2.LINE_AA)
             
             #data = im.fromarray(resultImg)
@@ -96,7 +96,7 @@ def predict():
             #data.save('gfg_dummy_pic.png')
             #save_path = os.path.join(save_folder, resultImg)
             #cv2.imshow("Detecting age and gender", resultImg)
-            #return render_template('new 1.html', resultImg=resultImg)
+            #return render_template('index.html', resultImg=resultImg)
     return 'dinesh'
     
 
