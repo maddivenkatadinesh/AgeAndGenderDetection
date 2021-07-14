@@ -5,9 +5,11 @@
 <style>
 .heading{
 color:#993399;
+font-size: larger;
 }
 .button{
 color:navy;
+min-height: 100px;
 }
 .total{
 background-color:#66ccff;
@@ -28,13 +30,13 @@ color:red;
 and (min-device-width : 360px)   
 and (max-device-width : 640px)
 { .image{
-	height:500px;
-	width:500px;
+	height:65%;
+	width:95%;
 }
 .button{
-	height:60px;
-	width:80px;
-	font-size:100%;
+	height:80px;
+	min-width:150px;
+	font-size:40px;
 }
 .age,.gender,.para{
 height:300px;
@@ -45,14 +47,14 @@ font-size:300%;
 </head>
   <body class="total">
 	<center>
-	<h3 class='heading'>AGE AND GENDER PREDICTION</h3><br>
-	<img src="{{ url_for('video_feed') }}" height="200" class="image"><br><br>
+	<h1 class='heading'>AGE AND GENDER PREDICTION</h1><br>
+	<img src="{{ url_for('video_feed') }}" height="65%" class="image"><br><br>
 	<table>
 	<tr>
 	<td>
 	<center>
 	<form action='/predict' method='POST'>
-		<input type="submit" value="Detect Now" class="button" style="color:white; background-color:green">
+		<input type="submit" value="Detect Now" class="button" style="color:white; background-color:green; min-width: 25%; min-height: fit-content; font-size: large;">
     </form>
 	</td></tr>
 	</table>
