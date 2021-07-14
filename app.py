@@ -227,7 +227,7 @@ def predict():
             #save_folder = 'static\\images'
             
 
-            return render_template('index.html',age=age,gender=gender)
+            return render_template('index.html',age=str("Age is "+age),gender=str("Gender : "+gender))
             #cv2.putText(resultImg, f'{gender}, {age}', (faceBox[0], faceBox[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,255,255), 2, cv2.LINE_AA)
             
             #data = im.fromarray(resultImg)
