@@ -4,43 +4,61 @@
 <title>Age and Gender</title>
 <style>
 .heading{
-color:#993399
+color:#993399;
 }
 .button{
-color:navy
+color:navy;
 }
 .total{
-background-color:#66ccff
+background-color:#66ccff;
 }
 .age{
-color:blue
+color:blue;
 }
 .gender{
-color:purple
+color:purple;
 }
 .para{
-color:red
+color:red;
 }
+.image{
 
+}
+@media only screen   
+and (min-device-width : 360px)   
+and (max-device-width : 640px)
+{ .image{
+	height:500px;
+	width:500px;
+}
+.button{
+	height:60px;
+	width:80px;
+	font-size:100%;
+}
+.age,.gender,.para{
+height:80px;
+width:80px;
+font-size:150%;
+}
 </style>
 </head>
   <body class="total">
 	<center>
-	<h1 class='heading'>AGE AND GENDER PREDICTION</h1><br>
-	<img src="{{ url_for('video_feed') }}" height="350"><br><br>
+	<h3 class='heading'>AGE AND GENDER PREDICTION</h3><br>
+	<img src="{{ url_for('video_feed') }}" height="200" class="image"><br><br>
 	<table>
 	<tr>
 	<td>
 	<center>
 	<form action='/predict' method='POST'>
-		<input type="submit" value="Detect Now" class="button">
+		<input type="submit" value="Detect Now" class="button" style="color:white; background-color:green">
     </form>
-	</center>
 	</td></tr>
 	</table>
-	<h3 class="age"><center>your age is in between {{ age }}</center></h3>
-	<h3 class="gender"><center>your gender is {{ gender }}</center></h3>
-	<h2 class="para">{{ n }}</h2>
+	<p class="age">{{ age }}</p>
+	<p class="gender"> {{ gender }}</p>
+	<p class="para">{{ n }}</p>
 	</center>
   </body>
 </html>
