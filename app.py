@@ -22,7 +22,7 @@ except OSError as error:
     pass
 
 #Load pretrained face detection model    
-net = cv2.dnn.readNetFromCaffe('models/deploy.prototxt.txt', 'models/deploy_live.caffemodel')
+net = cv2.dnn.readNetFromCaffe('models/model_deploy.prototxt.txt', 'models/model_deploy_live.caffemodel')
 
 #instatiate flask app  
 app = Flask(__name__, template_folder='./templates')
@@ -180,12 +180,12 @@ def predict():
 
     args=parser.parse_args()
 
-    faceProto="models/opencv_face_detector.pbtxt"
-    faceModel="models/opencv_face_detector_uint8.pb"
-    ageProto="models/age1.prototxt"
-    ageModel="models/age_net.caffemodel"
-    genderProto="models/gender1.prototxt"
-    genderModel="models/gender_net.caffemodel"
+    faceProto="models/model_opencv_face_detector.pbtxt"
+    faceModel="models/model_opencv_face_detector_uint8.pb"
+    ageProto="models/model_age1.prototxt"
+    ageModel="models/model_age_net.caffemodel"
+    genderProto="models/model_gender1.prototxt"
+    genderModel="models/model_gender_net.caffemodel"
 
     MODEL_MEAN_VALUES=(78.4263377603, 87.7689143744, 114.895847746)
     ageList=['(0-2)', '(4-6)', '(8-12)', '(15-20)', '(25-32)', '(38-43)', '(48-53)', '(60-100)']
@@ -223,21 +223,7 @@ def predict():
             agePreds=ageNet.forward()
             age=ageList[agePreds[0].argmax()]
             print(f'Age: {age[1:-1]} years')
-
-            #save_folder = 'static\\images'
-            
-
             return render_template('index.html',age=str("Age is "+age),gender=str("Gender : "+gender))
-            #cv2.putText(resultImg, f'{gender}, {age}', (faceBox[0], faceBox[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,255,255), 2, cv2.LINE_AA)
-            
-            #data = im.fromarray(resultImg)
-      
-            # saving the final output 
-            # as a PNG file
-            #data.save('gfg_dummy_pic.png')
-            #save_path = os.path.join(save_folder, resultImg)
-            #cv2.imshow("Detecting age and gender", resultImg)
-            #return render_template('new 1.html', resultImg=resultImg)
     return 'dinesh'
     
 if __name__ == '__main__':
